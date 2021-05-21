@@ -1,0 +1,12 @@
+com/example/kmmapplication/androidApp/BuildConfig.java
+ com.example.kmmapplication.androidApp.BuildConfig
+com/example/kmmapplication/androidApp/databinding/ItemGameBinding.java
+ com.example.kmmapplication.androidApp.databinding.ItemGameBinding
+com/example/kmmapplication/androidApp/databinding/ItemLaunchBinding.java
+ com.example.kmmapplication.androidApp.databinding.ItemLaunchBinding
+com/example/kmmapplication/androidApp/databinding/ItemPlayerStandingBinding.java
+ com.example.kmmapplication.androidApp.databinding.ItemPlayerStandingBinding
+com/example/kmmapplication/androidApp/databinding/ActivityMainBinding.java
+ com.example.kmmapplication.androidApp.databinding.ActivityMainBinding
+com/example/kmmapplication/androidApp/databinding/FragmentGameListBinding.java
+ com.example.kmmapplication.androidApp.databinding.FragmentGameListBinding

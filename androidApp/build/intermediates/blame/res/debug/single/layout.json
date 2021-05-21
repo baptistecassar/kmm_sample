@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/Users/bcassar/StudioProjects/KMMApplication/androidApp/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/item_game.xml",
+        "source": "/Users/bcassar/StudioProjects/KMMApplication/androidApp/src/main/res/layout/item_game.xml"
+    },
+    {
+        "merged": "/Users/bcassar/StudioProjects/KMMApplication/androidApp/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_main.xml",
+        "source": "/Users/bcassar/StudioProjects/KMMApplication/androidApp/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/bcassar/StudioProjects/KMMApplication/androidApp/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_game_list.xml",
+        "source": "/Users/bcassar/StudioProjects/KMMApplication/androidApp/src/main/res/layout/fragment_game_list.xml"
+    },
+    {
+        "merged": "/Users/bcassar/StudioProjects/KMMApplication/androidApp/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/item_player_standing.xml",
+        "source": "/Users/bcassar/StudioProjects/KMMApplication/androidApp/src/main/res/layout/item_player_standing.xml"
+    },
+    {
+        "merged": "/Users/bcassar/StudioProjects/KMMApplication/androidApp/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/item_launch.xml",
+        "source": "/Users/bcassar/StudioProjects/KMMApplication/androidApp/src/main/res/layout/item_launch.xml"
+    }
+]

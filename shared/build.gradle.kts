@@ -1,0 +1,115 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+
+plugins {
+    kotlin("multiplatform")
+    kotlin("plugin.serialization")
+    id("com.android.library")
+    id("kotlin-android-extensions")
+    id("com.squareup.sqldelight")
+}
+
+kotlin {
+
+    val iOSTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget =
+        if (System.getenv("SDK_NAME")?.startsWith("iphoneos") == true)
+            ::iosArm64
+        else
+            ::iosX64
+
+    iOSTarget("ios") {
+        binaries {
+            framework {
+                baseName = "shared"
+            }
+        }
+    }
+
+    android()
+
+    val ktorVersion = "1.4.0"
+    val moko_mvvm_version = "0.10.1"
+    val serializationVersion = "1.0.0-RC"
+    val sqlDelightVersion: String by project
+    val coroutinesVersion = "1.3.9-native-mt"
+    val androidx_lifecycle_version = "2.2.0"
+
+    sourceSets {
+        val commonMain by getting {
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
+
+                // MOKO - MVVM
+                implementation("dev.icerock.moko:mvvm:$moko_mvvm_version")
+
+                // SQL Delight
+                implementation("com.squareup.sqldelight:runtime:$sqlDelightVersion")
+
+                // KTOR
+                implementation("io.ktor:ktor-client-serialization:$ktorVersion")
+                implementation("io.ktor:ktor-client-core:$ktorVersion")
+
+                // MOKO - MVVM
+                implementation( "dev.icerock.moko:mvvm:$moko_mvvm_version")
+            }
+        }
+        val commonTest by getting {
+            dependencies {
+                implementation(kotlin("test-common"))
+                implementation(kotlin("test-annotations-common"))
+            }
+        }
+        val androidMain by getting {
+            dependencies {
+                implementation("com.google.android.material:material:1.3.0")
+                implementation("io.ktor:ktor-client-android:$ktorVersion")
+                // MOKO - MVVM
+                implementation("androidx.lifecycle:lifecycle-extensions:$androidx_lifecycle_version")
+                // SQL Delight
+                implementation("com.squareup.sqldelight:android-driver:$sqlDelightVersion")
+            }
+        }
+        val androidTest by getting {
+            dependencies {
+                implementation(kotlin("test-junit"))
+                implementation("junit:junit:4.13")
+            }
+        }
+        val iosMain by getting {
+            dependencies {
+                implementation("io.ktor:ktor-client-ios:$ktorVersion")
+                // SQL Delight
+                implementation("com.squareup.sqldelight:native-driver:$sqlDelightVersion")
+            }
+        }
+        val iosTest by getting
+    }
+}
+
+android {
+    compileSdkVersion(29)
+    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+    defaultConfig {
+        minSdkVersion(24)
+        targetSdkVersion(29)
+    }
+}
+
+sqldelight {
+    database("AppDatabase") {
+        packageName = "com.example.kmmapplication.shared.cache"
+    }
+}
+
+val packForXcode by tasks.creating(Sync::class) {
+    group = "build"
+    val mode = System.getenv("CONFIGURATION") ?: "DEBUG"
+    val framework = kotlin.targets.getByName<KotlinNativeTarget>("ios").binaries.getFramework(mode)
+    inputs.property("mode", mode)
+    dependsOn(framework.linkTask)
+    val targetDir = File(buildDir, "xcode-frameworks")
+    from({ framework.outputDirectory })
+    into(targetDir)
+}
+
+tasks.getByName("build").dependsOn(packForXcode)
