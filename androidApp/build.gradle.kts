@@ -4,6 +4,7 @@ plugins {
 }
 
 dependencies {
+    val koinVersion = "3.0.2"
     implementation(project(":shared"))
     implementation("com.google.android.material:material:1.3.0")
     implementation("androidx.appcompat:appcompat:1.2.0")
@@ -15,6 +16,22 @@ dependencies {
     implementation("androidx.cardview:cardview:1.0.0")
 
     implementation("com.ncapdevi:frag-nav:3.3.0")
+
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.3.1")
+    implementation("androidx.activity:activity-ktx:1.2.3")
+    implementation("androidx.fragment:fragment-ktx:1.3.3")
+
+    // koin
+    implementation("io.insert-koin:koin-android:$koinVersion")
+    implementation("io.insert-koin:koin-core:$koinVersion")
+    implementation("io.insert-koin:koin-androidx-compose:3.0.1")
+
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("androidx.test:core:1.3.0")
+    testImplementation("org.robolectric:robolectric:4.4")
+    androidTestImplementation("androidx.test:runner:1.3.0")
 }
 
 android {
@@ -39,11 +56,11 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
-    }
-
     buildFeatures {
         viewBinding = true
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 }

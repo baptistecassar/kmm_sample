@@ -11,15 +11,15 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name="com.example.kmmapplication.androidApp.KMMSampleApplication"
         android:allowBackup="false"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
         android:extractNativeLibs="false"
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.example.kmmapplication.androidApp.MainActivity" >
+        <activity android:name="com.example.kmmapplication.androidApp.ui.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

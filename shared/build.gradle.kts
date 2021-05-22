@@ -27,11 +27,12 @@ kotlin {
     android()
 
     val ktorVersion = "1.4.0"
-    val moko_mvvm_version = "0.10.1"
+    val mokoMvvmVersion = "0.10.1"
     val serializationVersion = "1.0.0-RC"
     val sqlDelightVersion: String by project
     val coroutinesVersion = "1.3.9-native-mt"
-    val androidx_lifecycle_version = "2.2.0"
+    val androidxLifecycleVersion = "2.2.0"
+    val koinVersion = "3.0.2"
 
     sourceSets {
         val commonMain by getting {
@@ -40,17 +41,22 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
 
                 // MOKO - MVVM
-                implementation("dev.icerock.moko:mvvm:$moko_mvvm_version")
+                implementation("dev.icerock.moko:mvvm:$mokoMvvmVersion")
 
                 // SQL Delight
-                implementation("com.squareup.sqldelight:runtime:$sqlDelightVersion")
+                implementation("com.squareup.sqldelight:runtime:${Versions.sqlDelight}")
 
                 // KTOR
                 implementation("io.ktor:ktor-client-serialization:$ktorVersion")
                 implementation("io.ktor:ktor-client-core:$ktorVersion")
+                implementation("io.ktor:ktor-client-logging:$ktorVersion")
+
+                // koin
+                api("io.insert-koin:koin-test:$koinVersion")
+                api("io.insert-koin:koin-core:$koinVersion")
 
                 // MOKO - MVVM
-                implementation( "dev.icerock.moko:mvvm:$moko_mvvm_version")
+                implementation( "dev.icerock.moko:mvvm:$mokoMvvmVersion")
             }
         }
         val commonTest by getting {
@@ -64,9 +70,9 @@ kotlin {
                 implementation("com.google.android.material:material:1.3.0")
                 implementation("io.ktor:ktor-client-android:$ktorVersion")
                 // MOKO - MVVM
-                implementation("androidx.lifecycle:lifecycle-extensions:$androidx_lifecycle_version")
+                implementation("androidx.lifecycle:lifecycle-extensions:$androidxLifecycleVersion")
                 // SQL Delight
-                implementation("com.squareup.sqldelight:android-driver:$sqlDelightVersion")
+                implementation("com.squareup.sqldelight:android-driver:${Versions.sqlDelight}")
             }
         }
         val androidTest by getting {
@@ -79,7 +85,7 @@ kotlin {
             dependencies {
                 implementation("io.ktor:ktor-client-ios:$ktorVersion")
                 // SQL Delight
-                implementation("com.squareup.sqldelight:native-driver:$sqlDelightVersion")
+                implementation("com.squareup.sqldelight:native-driver:${Versions.sqlDelight}")
             }
         }
         val iosTest by getting
@@ -92,6 +98,16 @@ android {
     defaultConfig {
         minSdkVersion(24)
         targetSdkVersion(29)
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 }
 
