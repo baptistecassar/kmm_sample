@@ -5,8 +5,12 @@ import com.example.kmmapplication.shared.model.Player
 import com.example.kmmapplication.shared.model.PlayerWithRating
 import io.ktor.client.*
 import io.ktor.client.request.*
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 
-class GameApi(private val httpClient: HttpClient) {
+class GameApi : KoinComponent {
+
+    private val httpClient: HttpClient by inject()
 
     suspend fun getAllPlayers(): List<Player> {
         return httpClient.get(PLAYERS_ENDPOINT)
@@ -21,7 +25,7 @@ class GameApi(private val httpClient: HttpClient) {
     }
 
     companion object {
-        private const val BASE_URL = "http://192.168.1.236:8080/v1"
+        private const val BASE_URL = "http://192.168.68.100:8080/v1"
         private const val PLAYERS_ENDPOINT = "$BASE_URL/players"
         private const val GAMES_ENDPOINT = "$BASE_URL/games"
         private const val PLAYERS_STANDINGS_ENDPOINT =

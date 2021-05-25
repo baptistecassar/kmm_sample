@@ -36,6 +36,7 @@ MERGED from [androidx.compose.ui:ui-unit:1.0.0-beta01] /Users/bcassar/.gradle/ca
 MERGED from [androidx.compose.ui:ui-geometry:1.0.0-beta01] /Users/bcassar/.gradle/caches/transforms-2/files-2.1/4a1cf557cd6e8288e89cb336d0fd1c6e/ui-geometry-1.0.0-beta01/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.compose.ui:ui-util:1.0.0-beta01] /Users/bcassar/.gradle/caches/transforms-2/files-2.1/14744949a4bde88ed14d23478b6cbec1/ui-util-1.0.0-beta01/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.compose.runtime:runtime:1.0.0-beta01] /Users/bcassar/.gradle/caches/transforms-2/files-2.1/37a944bab3230c99391459cb1f56887f/runtime-1.0.0-beta01/AndroidManifest.xml:17:1-24:12
+MERGED from [co.touchlab:kermit-android-debug:0.1.9] /Users/bcassar/.gradle/caches/transforms-2/files-2.1/f2af2c23b086e1b0b20234099538c578/kermit-debug/AndroidManifest.xml:11:1-16:12
 MERGED from [com.ncapdevi:frag-nav:3.3.0] /Users/bcassar/.gradle/caches/transforms-2/files-2.1/43cf94da0c391de79c72e2d2a8f65991/frag-nav-3.3.0/AndroidManifest.xml:2:1-11:12
 MERGED from [dev.icerock.moko:mvvm-internal-android-debug:0.10.1] /Users/bcassar/.gradle/caches/transforms-2/files-2.1/639fa80552359d5e80372b34c65c1ba8/mvvm-internal-debug/AndroidManifest.xml:2:1-9:12
 MERGED from [dev.icerock.moko:graphics-android-debug:0.6.1] /Users/bcassar/.gradle/caches/transforms-2/files-2.1/e71a101348f8d25a29da84dec64af25a/graphics-debug/AndroidManifest.xml:2:1-9:12
@@ -212,6 +213,8 @@ MERGED from [androidx.compose.ui:ui-util:1.0.0-beta01] /Users/bcassar/.gradle/ca
 MERGED from [androidx.compose.ui:ui-util:1.0.0-beta01] /Users/bcassar/.gradle/caches/transforms-2/files-2.1/14744949a4bde88ed14d23478b6cbec1/ui-util-1.0.0-beta01/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.compose.runtime:runtime:1.0.0-beta01] /Users/bcassar/.gradle/caches/transforms-2/files-2.1/37a944bab3230c99391459cb1f56887f/runtime-1.0.0-beta01/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.compose.runtime:runtime:1.0.0-beta01] /Users/bcassar/.gradle/caches/transforms-2/files-2.1/37a944bab3230c99391459cb1f56887f/runtime-1.0.0-beta01/AndroidManifest.xml:20:5-22:41
+MERGED from [co.touchlab:kermit-android-debug:0.1.9] /Users/bcassar/.gradle/caches/transforms-2/files-2.1/f2af2c23b086e1b0b20234099538c578/kermit-debug/AndroidManifest.xml:14:5-44
+MERGED from [co.touchlab:kermit-android-debug:0.1.9] /Users/bcassar/.gradle/caches/transforms-2/files-2.1/f2af2c23b086e1b0b20234099538c578/kermit-debug/AndroidManifest.xml:14:5-44
 MERGED from [com.ncapdevi:frag-nav:3.3.0] /Users/bcassar/.gradle/caches/transforms-2/files-2.1/43cf94da0c391de79c72e2d2a8f65991/frag-nav-3.3.0/AndroidManifest.xml:7:5-9:41
 MERGED from [com.ncapdevi:frag-nav:3.3.0] /Users/bcassar/.gradle/caches/transforms-2/files-2.1/43cf94da0c391de79c72e2d2a8f65991/frag-nav-3.3.0/AndroidManifest.xml:7:5-9:41
 MERGED from [dev.icerock.moko:mvvm-internal-android-debug:0.10.1] /Users/bcassar/.gradle/caches/transforms-2/files-2.1/639fa80552359d5e80372b34c65c1ba8/mvvm-internal-debug/AndroidManifest.xml:5:5-7:41

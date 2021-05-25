@@ -28,33 +28,34 @@
 19-->/Users/bcassar/StudioProjects/KMMApplication/androidApp/src/main/AndroidManifest.xml:9:9-69
 20        android:supportsRtl="true"
 20-->/Users/bcassar/StudioProjects/KMMApplication/androidApp/src/main/AndroidManifest.xml:10:9-35
-21        android:theme="@style/AppTheme" >
-21-->/Users/bcassar/StudioProjects/KMMApplication/androidApp/src/main/AndroidManifest.xml:11:9-40
-22        <activity android:name="com.example.kmmapplication.androidApp.ui.MainActivity" >
-22-->/Users/bcassar/StudioProjects/KMMApplication/androidApp/src/main/AndroidManifest.xml:12:9-17:20
-22-->/Users/bcassar/StudioProjects/KMMApplication/androidApp/src/main/AndroidManifest.xml:12:19-50
-23            <intent-filter>
-23-->/Users/bcassar/StudioProjects/KMMApplication/androidApp/src/main/AndroidManifest.xml:13:13-16:29
-24                <action android:name="android.intent.action.MAIN" />
-24-->/Users/bcassar/StudioProjects/KMMApplication/androidApp/src/main/AndroidManifest.xml:14:17-69
-24-->/Users/bcassar/StudioProjects/KMMApplication/androidApp/src/main/AndroidManifest.xml:14:25-66
-25
-26                <category android:name="android.intent.category.LAUNCHER" />
-26-->/Users/bcassar/StudioProjects/KMMApplication/androidApp/src/main/AndroidManifest.xml:15:17-77
-26-->/Users/bcassar/StudioProjects/KMMApplication/androidApp/src/main/AndroidManifest.xml:15:27-74
-27            </intent-filter>
-28        </activity>
-29
-30        <provider
-30-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/bcassar/.gradle/caches/transforms-2/files-2.1/319f7563c989237f1a1dd48474eb4843/lifecycle-process-2.2.0/AndroidManifest.xml:25:9-29:43
-31            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-31-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/bcassar/.gradle/caches/transforms-2/files-2.1/319f7563c989237f1a1dd48474eb4843/lifecycle-process-2.2.0/AndroidManifest.xml:26:13-79
-32            android:authorities="com.example.kmmapplication.androidApp.lifecycle-process"
-32-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/bcassar/.gradle/caches/transforms-2/files-2.1/319f7563c989237f1a1dd48474eb4843/lifecycle-process-2.2.0/AndroidManifest.xml:27:13-69
-33            android:exported="false"
-33-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/bcassar/.gradle/caches/transforms-2/files-2.1/319f7563c989237f1a1dd48474eb4843/lifecycle-process-2.2.0/AndroidManifest.xml:28:13-37
-34            android:multiprocess="true" />
-34-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/bcassar/.gradle/caches/transforms-2/files-2.1/319f7563c989237f1a1dd48474eb4843/lifecycle-process-2.2.0/AndroidManifest.xml:29:13-40
-35    </application>
-36
-37</manifest>
+21        android:testOnly="true"
+22        android:theme="@style/AppTheme" >
+22-->/Users/bcassar/StudioProjects/KMMApplication/androidApp/src/main/AndroidManifest.xml:11:9-40
+23        <activity android:name="com.example.kmmapplication.androidApp.ui.MainActivity" >
+23-->/Users/bcassar/StudioProjects/KMMApplication/androidApp/src/main/AndroidManifest.xml:12:9-17:20
+23-->/Users/bcassar/StudioProjects/KMMApplication/androidApp/src/main/AndroidManifest.xml:12:19-50
+24            <intent-filter>
+24-->/Users/bcassar/StudioProjects/KMMApplication/androidApp/src/main/AndroidManifest.xml:13:13-16:29
+25                <action android:name="android.intent.action.MAIN" />
+25-->/Users/bcassar/StudioProjects/KMMApplication/androidApp/src/main/AndroidManifest.xml:14:17-69
+25-->/Users/bcassar/StudioProjects/KMMApplication/androidApp/src/main/AndroidManifest.xml:14:25-66
+26
+27                <category android:name="android.intent.category.LAUNCHER" />
+27-->/Users/bcassar/StudioProjects/KMMApplication/androidApp/src/main/AndroidManifest.xml:15:17-77
+27-->/Users/bcassar/StudioProjects/KMMApplication/androidApp/src/main/AndroidManifest.xml:15:27-74
+28            </intent-filter>
+29        </activity>
+30
+31        <provider
+31-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/bcassar/.gradle/caches/transforms-2/files-2.1/319f7563c989237f1a1dd48474eb4843/lifecycle-process-2.2.0/AndroidManifest.xml:25:9-29:43
+32            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+32-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/bcassar/.gradle/caches/transforms-2/files-2.1/319f7563c989237f1a1dd48474eb4843/lifecycle-process-2.2.0/AndroidManifest.xml:26:13-79
+33            android:authorities="com.example.kmmapplication.androidApp.lifecycle-process"
+33-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/bcassar/.gradle/caches/transforms-2/files-2.1/319f7563c989237f1a1dd48474eb4843/lifecycle-process-2.2.0/AndroidManifest.xml:27:13-69
+34            android:exported="false"
+34-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/bcassar/.gradle/caches/transforms-2/files-2.1/319f7563c989237f1a1dd48474eb4843/lifecycle-process-2.2.0/AndroidManifest.xml:28:13-37
+35            android:multiprocess="true" />
+35-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/bcassar/.gradle/caches/transforms-2/files-2.1/319f7563c989237f1a1dd48474eb4843/lifecycle-process-2.2.0/AndroidManifest.xml:29:13-40
+36    </application>
+37
+38</manifest>

@@ -56,7 +56,10 @@ kotlin {
                 api("io.insert-koin:koin-core:$koinVersion")
 
                 // MOKO - MVVM
-                implementation( "dev.icerock.moko:mvvm:$mokoMvvmVersion")
+                implementation("dev.icerock.moko:mvvm:$mokoMvvmVersion")
+
+                // kermit
+                api(Deps.kermit)
             }
         }
         val commonTest by getting {
@@ -111,11 +114,11 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     }
 }
 
-sqldelight {
-    database("AppDatabase") {
-        packageName = "com.example.kmmapplication.shared.cache"
-    }
-}
+//sqldelight {
+//    database("AppDatabase") {
+//        packageName = "com.example.kmmapplication.shared.cache"
+//    }
+//}
 
 val packForXcode by tasks.creating(Sync::class) {
     group = "build"

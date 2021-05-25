@@ -2,17 +2,12 @@ package com.example.kmmapplication.androidApp.ui
 
 import android.os.Bundle
 import android.view.MenuItem
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import com.example.kmmapplication.androidApp.R
 import com.example.kmmapplication.androidApp.databinding.ActivityMainBinding
 import com.example.kmmapplication.androidApp.ui.games.GamesFragment
-import com.example.kmmapplication.androidApp.ui.games.GamesViewModel
 import com.ncapdevi.fragnav.FragNavController
-import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 private const val INDEX_GAMES = 0
 private const val INDEX_STANDINGS = 1
@@ -21,8 +16,6 @@ private const val TOTAL_TAB_COUNT = 2
 class MainActivity : AppCompatActivity(), FragNavController.RootFragmentListener {
 
     private lateinit var binding: ActivityMainBinding
-
-    private val gamesViewModel = getViewModel<GamesViewModel>()
 
     private val fragNavController: FragNavController =
         FragNavController(supportFragmentManager, R.id.fragment_container)
@@ -40,10 +33,6 @@ class MainActivity : AppCompatActivity(), FragNavController.RootFragmentListener
         fragNavController.executePendingTransactions()
 
         binding.bottomNavigation.setOnNavigationItemSelectedListener(::onBottomBarItemSelected)
-
-        gamesViewModel.games.observe(this) {
-            //
-        }
     }
 
     override val numberOfRootFragments: Int

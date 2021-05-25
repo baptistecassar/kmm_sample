@@ -4,13 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kmmapplication.androidApp.R
 import com.example.kmmapplication.androidApp.databinding.FragmentGameListBinding
 import com.example.kmmapplication.androidApp.ui.GameAdapter
+import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 class GamesFragment : Fragment(R.layout.fragment_game_list) {
 
@@ -21,7 +22,7 @@ class GamesFragment : Fragment(R.layout.fragment_game_list) {
     // This property is only valid between onCreateView and onDestroyView.
     private val binding get() = _binding!!
 
-    private val gamesViewModel: GamesViewModel by viewModels()
+    private lateinit var gamesViewModel: GamesViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,20 +35,41 @@ class GamesFragment : Fragment(R.layout.fragment_game_list) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        gamesViewModel = getViewModel()
         setupUI()
-        gamesViewModel.games.observe(viewLifecycleOwner) {
-            gameAdapter.submitList(it)
+        gamesViewModel.gameListEvent.observe(viewLifecycleOwner) {
+            handleGameListEvent(it)
             binding.progressBar.isVisible = false
         }
     }
 
+    private fun handleGameListEvent(gameListEvent: GameListEvent) {
+        when (gameListEvent) {
+            is GameListEvent.GameListLoading -> {
+                binding.progressBar.isVisible = true
+            }
+            is GameListEvent.GameListLoaded -> {
+                binding.progressBar.isVisible = false
+                gameAdapter.submitList(gameListEvent.games)
+            }
+            is GameListEvent.GameListFailed -> {
+                binding.progressBar.isVisible = false
+                Toast.makeText(
+                    requireContext(),
+                    gameListEvent.throwable.localizedMessage,
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+    }
+
     private fun setupUI() {
-        binding.progressBar.isVisible = true
         binding.gameListRv.adapter = gameAdapter
         binding.gameListRv.layoutManager = LinearLayoutManager(requireContext())
 
         binding.swipeContainer.setOnRefreshListener {
             binding.swipeContainer.isRefreshing = false
+            gamesViewModel.refreshGames()
         }
     }
 

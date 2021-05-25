@@ -24,9 +24,9 @@ dependencies {
     implementation("androidx.fragment:fragment-ktx:1.3.3")
 
     // koin
-    implementation("io.insert-koin:koin-android:$koinVersion")
-    implementation("io.insert-koin:koin-core:$koinVersion")
-    implementation("io.insert-koin:koin-androidx-compose:3.0.1")
+    implementation(Koin.core)
+    implementation(Koin.android)
+    implementation(Koin.compose)
 
     testImplementation("junit:junit:4.13.2")
     testImplementation("androidx.test:core:1.3.0")
