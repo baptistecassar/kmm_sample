@@ -25,7 +25,7 @@ class GameApi : KoinComponent {
     }
 
     companion object {
-        private const val BASE_URL = "http://192.168.68.100:8080/v1"
+        private const val BASE_URL = "http://192.168.1.236:8080/v1"
         private const val PLAYERS_ENDPOINT = "$BASE_URL/players"
         private const val GAMES_ENDPOINT = "$BASE_URL/games"
         private const val PLAYERS_STANDINGS_ENDPOINT =

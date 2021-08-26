@@ -26,13 +26,9 @@ kotlin {
 
     android()
 
-    val ktorVersion = "1.4.0"
-    val mokoMvvmVersion = "0.10.1"
     val serializationVersion = "1.0.0-RC"
-    val sqlDelightVersion: String by project
     val coroutinesVersion = "1.3.9-native-mt"
     val androidxLifecycleVersion = "2.2.0"
-    val koinVersion = "3.0.2"
 
     sourceSets {
         val commonMain by getting {
@@ -40,23 +36,22 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
 
-                // MOKO - MVVM
-                implementation("dev.icerock.moko:mvvm:$mokoMvvmVersion")
-
                 // SQL Delight
                 implementation("com.squareup.sqldelight:runtime:${Versions.sqlDelight}")
 
                 // KTOR
-                implementation("io.ktor:ktor-client-serialization:$ktorVersion")
-                implementation("io.ktor:ktor-client-core:$ktorVersion")
-                implementation("io.ktor:ktor-client-logging:$ktorVersion")
+                implementation(Ktor.clientSerialization)
+                implementation(Ktor.clientCore)
+                implementation(Ktor.clientLogging)
 
                 // koin
-                api("io.insert-koin:koin-test:$koinVersion")
-                api("io.insert-koin:koin-core:$koinVersion")
+                api(Koin.test)
+                api(Koin.core)
 
                 // MOKO - MVVM
-                implementation("dev.icerock.moko:mvvm:$mokoMvvmVersion")
+                api(Moko.mokoMvvmCore)
+                api(Moko.mokoMvvmLiveData)
+                api(Moko.mokoMvvmState)
 
                 // kermit
                 api(Deps.kermit)
@@ -70,23 +65,28 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation("com.google.android.material:material:1.3.0")
-                implementation("io.ktor:ktor-client-android:$ktorVersion")
-                // MOKO - MVVM
+                implementation("com.google.android.material:material:1.4.0")
+                implementation(Ktor.clientAndroid)
                 implementation("androidx.lifecycle:lifecycle-extensions:$androidxLifecycleVersion")
                 // SQL Delight
                 implementation("com.squareup.sqldelight:android-driver:${Versions.sqlDelight}")
+                // MOKO - MVVM
+                api(Moko.mokoMvvmLiveDataMaterial)
+                api(Moko.mokoMvvmLiveDataGlide)
+                api(Moko.mokoMvvmLiveDataSwipeRefresh)
+                api(Moko.mokoMvvmDataBinding)
+                api(Moko.mokoMvvmViewBinding)
             }
         }
         val androidTest by getting {
             dependencies {
                 implementation(kotlin("test-junit"))
-                implementation("junit:junit:4.13")
+                implementation("junit:junit:4.13.2")
             }
         }
         val iosMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-ios:$ktorVersion")
+                implementation(Ktor.clientIos)
                 // SQL Delight
                 implementation("com.squareup.sqldelight:native-driver:${Versions.sqlDelight}")
             }
@@ -96,29 +96,13 @@ kotlin {
 }
 
 android {
-    compileSdkVersion(29)
+    compileSdk = 30
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
-        minSdkVersion(24)
-        targetSdkVersion(29)
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        minSdk = 24
+        targetSdk = 30
     }
 }
-
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
-}
-
-//sqldelight {
-//    database("AppDatabase") {
-//        packageName = "com.example.kmmapplication.shared.cache"
-//    }
-//}
 
 val packForXcode by tasks.creating(Sync::class) {
     group = "build"

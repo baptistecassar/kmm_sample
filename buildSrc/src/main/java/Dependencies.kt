@@ -1,7 +1,7 @@
 object Versions {
-    const val kotlin = "1.4.32"
+    const val kotlin = "1.5.10"
     const val kotlinCoroutines = "1.4.3-native-mt"
-    const val ktor = "1.5.3"
+    const val ktor = "1.6.3"
     const val kotlinxSerialization = "1.1.0"
     const val koin = "3.0.2"
     const val sqlDelight = "1.5.0"
@@ -15,6 +15,10 @@ object Versions {
 
     const val junit = "4.13"
     const val testRunner = "1.3.0"
+
+    const val moko = "0.11.0"
+    const val mokoTest = "0.11.0"
+    const val mokoResources = "0.15.1"
 }
 
 
@@ -43,24 +47,24 @@ object Compose {
 }
 
 object Koin {
-    val test = "io.insert-koin:koin-test:${Versions.koin}"
-    val core = "io.insert-koin:koin-core:${Versions.koin}"
-    val android = "io.insert-koin:koin-android:${Versions.koin}"
-    val compose = "io.insert-koin:koin-androidx-compose:3.0.1"
+    const val test = "io.insert-koin:koin-test:${Versions.koin}"
+    const val core = "io.insert-koin:koin-core:${Versions.koin}"
+    const val android = "io.insert-koin:koin-android:${Versions.koin}"
+    const val compose = "io.insert-koin:koin-androidx-compose:3.0.1"
 }
 
 object Ktor {
-    val clientCore = "io.ktor:ktor-client-core:${Versions.ktor}"
-    val clientJson = "io.ktor:ktor-client-json:${Versions.ktor}"
-    val clientLogging = "io.ktor:ktor-client-logging:${Versions.ktor}"
-    val clientSerialization = "io.ktor:ktor-client-serialization:${Versions.ktor}"
+    const val clientCore = "io.ktor:ktor-client-core:${Versions.ktor}"
+    const val clientJson = "io.ktor:ktor-client-json:${Versions.ktor}"
+    const val clientLogging = "io.ktor:ktor-client-logging:${Versions.ktor}"
+    const val clientSerialization = "io.ktor:ktor-client-serialization:${Versions.ktor}"
 
-    val clientAndroid = "io.ktor:ktor-client-android:${Versions.ktor}"
-    val clientApache = "io.ktor:ktor-client-apache:${Versions.ktor}"
-    val slf4j = "org.slf4j:slf4j-simple:${Versions.slf4j}"
-    val clientIos = "io.ktor:ktor-client-ios:${Versions.ktor}"
-    val clientCio = "io.ktor:ktor-client-cio:${Versions.ktor}"
-    val clientJs = "io.ktor:ktor-client-js:${Versions.ktor}"
+    const val clientAndroid = "io.ktor:ktor-client-android:${Versions.ktor}"
+    const val clientApache = "io.ktor:ktor-client-apache:${Versions.ktor}"
+    const val slf4j = "org.slf4j:slf4j-simple:${Versions.slf4j}"
+    const val clientIos = "io.ktor:ktor-client-ios:${Versions.ktor}"
+    const val clientCio = "io.ktor:ktor-client-cio:${Versions.ktor}"
+    const val clientJs = "io.ktor:ktor-client-js:${Versions.ktor}"
 }
 
 object Serialization {
@@ -68,13 +72,36 @@ object Serialization {
 }
 
 object SqlDelight {
-    val runtime = "com.squareup.sqldelight:runtime:${Versions.sqlDelight}"
-    val coroutineExtensions = "com.squareup.sqldelight:coroutines-extensions:${Versions.sqlDelight}"
-    val androidDriver = "com.squareup.sqldelight:android-driver:${Versions.sqlDelight}"
+    const val runtime = "com.squareup.sqldelight:runtime:${Versions.sqlDelight}"
+    const val coroutineExtensions =
+        "com.squareup.sqldelight:coroutines-extensions:${Versions.sqlDelight}"
+    const val androidDriver = "com.squareup.sqldelight:android-driver:${Versions.sqlDelight}"
 
-    val nativeDriver = "com.squareup.sqldelight:native-driver:${Versions.sqlDelight}"
-    val nativeDriverMacos = "com.squareup.sqldelight:native-driver-macosx64:${Versions.sqlDelight}"
-    val jdbcDriver = "org.xerial:sqlite-jdbc:${Versions.sqliteJdbcDriver}"
-    val sqlliteDriver = "com.squareup.sqldelight:sqlite-driver:${Versions.sqlDelight}"
+    const val nativeDriver = "com.squareup.sqldelight:native-driver:${Versions.sqlDelight}"
+    const val nativeDriverMacos =
+        "com.squareup.sqldelight:native-driver-macosx64:${Versions.sqlDelight}"
+    const val jdbcDriver = "org.xerial:sqlite-jdbc:${Versions.sqliteJdbcDriver}"
+    const val sqlliteDriver = "com.squareup.sqldelight:sqlite-driver:${Versions.sqlDelight}"
 }
 
+object Moko {
+    const val mokoResources = "dev.icerock.moko:resources:${Versions.mokoResources}"
+
+    //        .defaultMPL(ios = true)
+    const val mokoTest = "dev.icerock.moko:test:${Versions.mokoTest}"
+    const val mokoMvvm = "dev.icerock.moko:mvvm:${Versions.moko}"
+    const val mokoMvvmCore = "dev.icerock.moko:mvvm-core:${Versions.moko}"
+    const val mokoMvvmLiveData = "dev.icerock.moko:mvvm-livedata:${Versions.moko}"
+    const val mokoMvvmLiveDataMaterial =
+        "dev.icerock.moko:mvvm-livedata-material:${Versions.moko}"
+    const val mokoMvvmLiveDataGlide =
+        "dev.icerock.moko:mvvm-livedata-glide:${Versions.moko}"
+    const val mokoMvvmLiveDataSwipeRefresh =
+        "dev.icerock.moko:mvvm-livedata-swiperefresh:${Versions.moko}"
+    const val mokoMvvmDataBinding = "dev.icerock.moko:mvvm-databinding:${Versions.moko}"
+    const val mokoMvvmViewBinding = "dev.icerock.moko:mvvm-viewbinding:${Versions.moko}"
+    const val mokoMvvmState = "dev.icerock.moko:mvvm-state:${Versions.moko}"
+    const val mokoMvvmStateDeprecated =
+        "dev.icerock.moko:mvvm-state-deprecated:${Versions.moko}"
+    const val mokoMvvmTest = "dev.icerock.moko:mvvm-test:${Versions.moko}"
+}
