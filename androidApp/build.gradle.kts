@@ -37,6 +37,11 @@ dependencies {
         implementation(coilCompose)
         implementation(accompanistNavigationAnimation)
         implementation(livedata)
+
+        // Compose testing dependencies
+        androidTestImplementation(composeUiTest)
+        androidTestImplementation(composeUiTestJUnit)
+        debugImplementation(composeUiTestManifest)
     }
 
     testImplementation("junit:junit:4.13.2")
@@ -54,6 +59,7 @@ android {
         targetSdk = 30
         versionCode = 1
         versionName = "1.0"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -72,5 +78,11 @@ android {
 
     composeOptions {
         kotlinCompilerExtensionVersion = Versions.compose
+    }
+
+    packagingOptions {
+        resources.excludes.add("META-INF/licenses/**")
+        resources.excludes.add("META-INF/AL2.0")
+        resources.excludes.add("META-INF/LGPL2.1")
     }
 }

@@ -4,6 +4,7 @@ package com.example.kmmapplication.shared.di
 import co.touchlab.kermit.Kermit
 import com.example.kmmapplication.shared.network.GameApi
 import com.example.kmmapplication.shared.repository.GameRepository
+import com.example.kmmapplication.shared.repository.GameRepositoryInterface
 import com.example.kmmapplication.shared.repository.PlayerStandingsRepository
 import io.ktor.client.*
 import io.ktor.client.features.json.*
@@ -26,7 +27,7 @@ fun initKoin() = initKoin(enableNetworkLogs = false) {}
 fun commonModule(enableNetworkLogs: Boolean) = module {
     single { createJson() }
     single { createHttpClient(get(), enableNetworkLogs = enableNetworkLogs) }
-    single { GameRepository() }
+    single<GameRepositoryInterface> { GameRepository() }
     single { PlayerStandingsRepository() }
     single { GameApi() }
     single { Kermit(logger = get()) }

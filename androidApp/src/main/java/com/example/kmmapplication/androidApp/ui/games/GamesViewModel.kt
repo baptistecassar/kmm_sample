@@ -5,10 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.kmmapplication.shared.model.Game
-import com.example.kmmapplication.shared.repository.GameRepository
+import com.example.kmmapplication.shared.repository.GameRepositoryInterface
 import kotlinx.coroutines.launch
 
-class GamesViewModel(private val gamesRepository: GameRepository) : ViewModel() {
+class GamesViewModel(private val gamesRepository: GameRepositoryInterface) : ViewModel() {
 
     private val _gameListEvent = MutableLiveData<GameListEvent>()
     val gameListEvent: LiveData<GameListEvent> = _gameListEvent
@@ -21,15 +21,15 @@ class GamesViewModel(private val gamesRepository: GameRepository) : ViewModel() 
     }
 
     fun refreshGames() {
-        _gameListEvent.value = GameListEvent.GameListLoading
+        _gameListEvent.postValue(GameListEvent.GameListLoading)
         viewModelScope.launch {
             kotlin.runCatching {
                 gamesRepository.getGames()
             }.onSuccess {
-                _gameList.value = it
-                _gameListEvent.value = GameListEvent.GameListLoaded(it)
+                _gameList.postValue(it)
+                _gameListEvent.postValue(GameListEvent.GameListLoaded(it))
             }.onFailure {
-                _gameListEvent.value = GameListEvent.GameListFailed(it)
+                _gameListEvent.postValue(GameListEvent.GameListFailed(it))
             }
         }
     }

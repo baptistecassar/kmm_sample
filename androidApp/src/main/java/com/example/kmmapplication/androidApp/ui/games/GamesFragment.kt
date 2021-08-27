@@ -97,7 +97,7 @@ class GamesFragment : Fragment(R.layout.fragment_game_list) {
     private fun setupCompose() {
         binding.gameListCompose.setContent {
             MaterialTheme {
-                GameList()
+                GameList(gamesViewModel)
             }
         }
     }
@@ -114,76 +114,6 @@ class GamesFragment : Fragment(R.layout.fragment_game_list) {
         )
     }
 
-    @Composable
-    private fun GameList() {
-        val games: List<Game> by gamesViewModel.gameList.observeAsState(emptyList())
-        LazyColumn(modifier = Modifier.testTag(GameListTag)) {
-            items(games) { game ->
-                GameView(game = game)
-            }
-        }
-    }
-
-    @Composable
-    private fun GameView(game: Game) {
-        Card(
-            shape = RoundedCornerShape(8.dp),
-            modifier = Modifier
-                .padding(16.dp)
-                .fillMaxWidth()
-        ) {
-            Box(
-                modifier = Modifier
-                    .padding(16.dp)
-                    .fillMaxWidth()
-            ) {
-                Column {
-                    Text(
-                        text = game.gameType.uppercase(),
-                        fontWeight = FontWeight.Bold,
-                        textAlign = TextAlign.Center,
-                        modifier = Modifier.fillMaxWidth(),
-                    )
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(top = 8.dp),
-                    ) {
-                        Column(modifier = Modifier.weight(2f)) {
-                            Text(
-                                text = game.winningScore.toString(),
-                                style = TextStyle(fontSize = 24.sp),
-                                modifier = Modifier.align(alignment = Alignment.CenterHorizontally),
-                            )
-                            Text(
-                                text = game.winningPlayers.concatenatePlayers(),
-                                textAlign = TextAlign.Center,
-                                modifier = Modifier
-                                    .align(alignment = Alignment.CenterHorizontally)
-                                    .padding(top = 8.dp),
-                            )
-                        }
-                        Spacer(modifier = Modifier.weight(1f))
-                        Column(modifier = Modifier.weight(2f)) {
-                            Text(
-                                text = game.loosingScore.toString(),
-                                style = TextStyle(fontSize = 24.sp),
-                                modifier = Modifier.align(alignment = Alignment.CenterHorizontally),
-                            )
-                            Text(
-                                text = game.loosingPlayers.concatenatePlayers(),
-                                textAlign = TextAlign.Center,
-                                modifier = Modifier
-                                    .align(alignment = Alignment.CenterHorizontally)
-                                    .padding(top = 8.dp),
-                            )
-                        }
-                    }
-                }
-            }
-        }
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
@@ -194,4 +124,74 @@ class GamesFragment : Fragment(R.layout.fragment_game_list) {
     }
 
 
+}
+
+@Composable
+fun GameList(gamesViewModel: GamesViewModel) {
+    val games: List<Game> by gamesViewModel.gameList.observeAsState(emptyList())
+    LazyColumn(modifier = Modifier.testTag(GamesFragment.GameListTag)) {
+        items(games) { game ->
+            GameView(game = game)
+        }
+    }
+}
+
+@Composable
+fun GameView(game: Game) {
+    Card(
+        shape = RoundedCornerShape(8.dp),
+        modifier = Modifier
+            .padding(16.dp)
+            .fillMaxWidth()
+    ) {
+        Box(
+            modifier = Modifier
+                .padding(16.dp)
+                .fillMaxWidth()
+        ) {
+            Column {
+                Text(
+                    text = game.gameType.uppercase(),
+                    fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.fillMaxWidth(),
+                )
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 8.dp),
+                ) {
+                    Column(modifier = Modifier.weight(2f)) {
+                        Text(
+                            text = game.winningScore.toString(),
+                            style = TextStyle(fontSize = 24.sp),
+                            modifier = Modifier.align(alignment = Alignment.CenterHorizontally),
+                        )
+                        Text(
+                            text = game.winningPlayers.concatenatePlayers(),
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier
+                                .align(alignment = Alignment.CenterHorizontally)
+                                .padding(top = 8.dp),
+                        )
+                    }
+                    Spacer(modifier = Modifier.weight(1f))
+                    Column(modifier = Modifier.weight(2f)) {
+                        Text(
+                            text = game.loosingScore.toString(),
+                            style = TextStyle(fontSize = 24.sp),
+                            modifier = Modifier.align(alignment = Alignment.CenterHorizontally),
+                        )
+                        Text(
+                            text = game.loosingPlayers.concatenatePlayers(),
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier
+                                .align(alignment = Alignment.CenterHorizontally)
+                                .padding(top = 8.dp),
+                        )
+                    }
+                }
+            }
+        }
+    }
 }

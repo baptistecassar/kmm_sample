@@ -5,12 +5,16 @@ import com.example.kmmapplication.shared.network.GameApi
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
-class GameRepository : KoinComponent{
+interface GameRepositoryInterface {
+    suspend fun getGames(): List<Game>
+}
 
-    private val api : GameApi by inject()
+class GameRepository : KoinComponent, GameRepositoryInterface {
+
+    private val api: GameApi by inject()
 
     @Throws(Exception::class)
-    suspend fun getGames(): List<Game> {
+    override suspend fun getGames(): List<Game> {
         return api.getAllGames()
     }
 }

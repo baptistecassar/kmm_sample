@@ -53,6 +53,10 @@ object Compose {
     const val coilCompose = "io.coil-kt:coil-compose:1.3.1"
     const val accompanistNavigationAnimation =
         "com.google.accompanist:accompanist-navigation-animation:${Versions.accompanist}"
+
+    const val composeUiTest = "androidx.compose.ui:ui-test:${Versions.compose}"
+    const val composeUiTestJUnit = "androidx.compose.ui:ui-test-junit4:${Versions.compose}"
+    const val composeUiTestManifest = "androidx.compose.ui:ui-test-manifest:${Versions.compose}"
 }
 
 object Koin {
