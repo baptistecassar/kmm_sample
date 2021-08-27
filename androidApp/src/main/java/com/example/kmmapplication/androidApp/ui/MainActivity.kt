@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import com.example.kmmapplication.androidApp.R
 import com.example.kmmapplication.androidApp.databinding.ActivityMainBinding
 import com.example.kmmapplication.androidApp.ui.games.GamesFragment
+import com.example.kmmapplication.androidApp.ui.standings.StandingsFragment
 import com.ncapdevi.fragnav.FragNavController
 
 private const val INDEX_GAMES = 0

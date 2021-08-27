@@ -1,4 +1,4 @@
-package com.example.kmmapplication.androidApp.ui
+package com.example.kmmapplication.androidApp.ui.standings
 
 import android.os.Bundle
 import android.view.LayoutInflater
