@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kmmapplication.androidApp.R
 import com.example.kmmapplication.androidApp.databinding.FragmentGameListBinding
-import com.example.kmmapplication.androidApp.ui.GameAdapter
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 class GamesFragment : Fragment(R.layout.fragment_game_list) {

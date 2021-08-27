@@ -1,4 +1,4 @@
-package com.example.kmmapplication.androidApp.ui
+package com.example.kmmapplication.androidApp.ui.games
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
