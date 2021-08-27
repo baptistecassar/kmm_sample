@@ -1,5 +1,5 @@
 object Versions {
-    const val kotlin = "1.5.10"
+    const val kotlin = "1.5.21"
     const val kotlinCoroutines = "1.4.3-native-mt"
     const val ktor = "1.6.3"
     const val kotlinxSerialization = "1.1.0"
@@ -9,9 +9,11 @@ object Versions {
 
     const val sqliteJdbcDriver = "3.30.1"
     const val slf4j = "1.7.30"
-    const val compose = "1.0.0-beta06"
-    const val nav_compose = "1.0.0-alpha10"
-    const val accompanist = "0.9.0"
+
+    const val compose = "1.0.1"
+    const val wearCompose = "1.0.0-alpha03"
+    const val navCompose = "2.4.0-alpha06"
+    const val accompanist = "0.16.0"
 
     const val junit = "4.13"
     const val testRunner = "1.3.0"
@@ -42,8 +44,19 @@ object Compose {
     const val uiTooling = "androidx.compose.ui:ui-tooling:${Versions.compose}"
     const val foundationLayout = "androidx.compose.foundation:foundation-layout:${Versions.compose}"
     const val material = "androidx.compose.material:material:${Versions.compose}"
-    const val navigation = "androidx.navigation:navigation-compose:${Versions.nav_compose}"
-    const val accompanist = "com.google.accompanist:accompanist-coil:${Versions.accompanist}"
+    const val livedata = "androidx.compose.runtime:runtime-livedata:${Versions.compose}"
+    const val navigation = "androidx.navigation:navigation-compose:${Versions.navCompose}"
+
+    const val wearFoundation = "androidx.wear.compose:compose-foundation:${Versions.wearCompose}"
+    const val wearMaterial = "androidx.wear.compose:compose-material:${Versions.wearCompose}"
+
+    const val coilCompose = "io.coil-kt:coil-compose:1.3.1"
+    const val accompanistNavigationAnimation =
+        "com.google.accompanist:accompanist-navigation-animation:${Versions.accompanist}"
+
+    const val composeUiTest = "androidx.compose.ui:ui-test:${Versions.compose}"
+    const val composeUiTestJUnit = "androidx.compose.ui:ui-test-junit4:${Versions.compose}"
+    const val composeUiTestManifest = "androidx.compose.ui:ui-test-manifest:${Versions.compose}"
 }
 
 object Koin {

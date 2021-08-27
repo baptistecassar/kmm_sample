@@ -1,11 +1,9 @@
 package com.example.kmmapplication.shared.cache
 
-import com.example.kmmapplication.shared.cache.AppDatabase
-import com.squareup.sqldelight.db.SqlDriver
-import com.squareup.sqldelight.drivers.native.NativeSqliteDriver
+//import com.example.kmmapplication.shared.cache.AppDatabase
 
-actual class DatabaseDriverFactory {
-    actual fun createDriver(): SqlDriver {
-        return NativeSqliteDriver(AppDatabase.Schema, "test.db")
-    }
-}
+//actual class DatabaseDriverFactory {
+//    actual fun createDriver(): SqlDriver {
+//        return NativeSqliteDriver(AppDatabase.Schema, "test.db")
+//    }
+//}

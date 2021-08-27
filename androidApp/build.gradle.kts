@@ -7,7 +7,7 @@ dependencies {
     implementation(project(":shared"))
     implementation("com.google.android.material:material:1.4.0")
     implementation("androidx.appcompat:appcompat:1.3.1")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0")
     implementation("androidx.core:core-ktx:1.6.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.0")
     implementation("androidx.recyclerview:recyclerview:1.2.1")
@@ -27,9 +27,26 @@ dependencies {
     implementation(Koin.android)
     implementation(Koin.compose)
 
+    with(Compose) {
+        implementation(ui)
+        implementation(uiGraphics)
+        implementation(uiTooling)
+        implementation(foundationLayout)
+        implementation(material)
+        implementation(navigation)
+        implementation(coilCompose)
+        implementation(accompanistNavigationAnimation)
+        implementation(livedata)
+
+        // Compose testing dependencies
+        androidTestImplementation(composeUiTest)
+        androidTestImplementation(composeUiTestJUnit)
+        debugImplementation(composeUiTestManifest)
+    }
+
     testImplementation("junit:junit:4.13.2")
     testImplementation("androidx.test:core:1.4.0")
-    testImplementation("org.robolectric:robolectric:4.4")
+    testImplementation("org.robolectric:robolectric:4.6.1")
     androidTestImplementation("androidx.test:runner:1.4.0")
 }
 
@@ -42,6 +59,7 @@ android {
         targetSdk = 30
         versionCode = 1
         versionName = "1.0"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -52,5 +70,19 @@ android {
 
     buildFeatures {
         viewBinding = true
+    }
+
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = Versions.compose
+    }
+
+    packagingOptions {
+        resources.excludes.add("META-INF/licenses/**")
+        resources.excludes.add("META-INF/AL2.0")
+        resources.excludes.add("META-INF/LGPL2.1")
     }
 }
